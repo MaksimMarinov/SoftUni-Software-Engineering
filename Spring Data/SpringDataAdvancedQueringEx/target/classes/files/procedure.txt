@@ -1,0 +1,9 @@
+CREATE PROCEDURE total_amount_of_books_by_author(first_name VARCHAR(30),
+last_name VARCHAR(30))
+begin
+    SELECT COUNT(b.id) FROM authors a
+    JOIN books b on a.id = b.author_id
+    WHERE a.first_name = first_name AND a.last_name=last_name
+    GROUP BY a.id;
+
+end;
